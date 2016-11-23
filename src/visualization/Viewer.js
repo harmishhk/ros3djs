@@ -35,6 +35,7 @@ ROS3D.Viewer = function(options) {
     y : 3,
     z : 3
   };
+  var center = options.center || new THREE.Vector3();
   var cameraZoomSpeed = options.cameraZoomSpeed || 0.5;
 
   // create the canvas to render to
@@ -59,7 +60,8 @@ ROS3D.Viewer = function(options) {
   // add controls to the camera
   this.cameraControls = new ROS3D.OrbitControls({
     scene : this.scene,
-    camera : this.camera
+    camera : this.camera,
+    center: center
   });
   this.cameraControls.userZoomSpeed = cameraZoomSpeed;
 
